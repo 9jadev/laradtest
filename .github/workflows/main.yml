@@ -1,0 +1,10 @@
+name: VTPASS ACTIONS
+on:
+    push:
+        branches:
+            - ahambasolomon/BeforeandAfterBalance
+jobs:
+    example-job:
+        runs-on: ubuntu-latest
+        steps:
+          - run: bash ./deploy_script
