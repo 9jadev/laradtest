@@ -1,0 +1,13 @@
+#!/bin/bash
+echo -e "Hello $(whoami) \nStarted Docker commands!"
+sshpass -p TestVtpassPro1 ssh testvtpasspro1@178.62.80.201 << EOF
+    cd public_html/apps
+    ls
+    git fetch origin development
+    git checkout FETCH_HEAD -- app/. routes/. resources/. database/.
+    php artisan migrate
+    composer update
+EOF
+
+echo -e "Executed Successfully!"
+
